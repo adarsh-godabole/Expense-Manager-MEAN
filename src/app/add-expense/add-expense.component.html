@@ -1,0 +1,16 @@
+<h2>My Expenses</h2>
+<ul class="expenses">
+    <li *ngFor="let expense of expenses" (click)="onSelect(expense)"
+        [class.selected]="expense === selectedExpense">
+        <span class="badge">{{expense.name}}</span> {{expense.amount}}
+  </li>
+</ul>
+
+<div *ngIf="selectedExpense">
+    <h2>{{selectedExpense.name | uppercase}} Details</h2>
+    <div><span>Amount </span>{{selectedExpense.amount}}</div>
+    <div>
+      <label for="expense-name">Expense name: </label>
+      <input id="expense-name" [(ngModel)]="selectedExpense.name" placeholder="name">
+    </div>
+</div>
