@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Expense } from '../expense'
 import { EXPENSES } from '../expense-list'
+import { ExpenseService } from '../expense.service';
 
 @Component({
   selector: 'app-add-expense',
@@ -9,15 +10,20 @@ import { EXPENSES } from '../expense-list'
 })
 export class AddExpenseComponent implements OnInit {
 
-  expenses = EXPENSES;
+  expenses : Expense[]=[];
   selectedExpense?:Expense;
-  constructor() { }
+  constructor(private expser : ExpenseService) { }
 
   onSelect(hero: Expense): void {
     this.selectedExpense = hero;
   }
 
   ngOnInit(): void {
+    this.getExpences();
+  }
+
+  getExpences():void{
+    this.expenses=this.expser.getExpenses();
   }
 
 }
