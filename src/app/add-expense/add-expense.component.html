@@ -5,12 +5,4 @@
         <span class="badge">{{expense.name}}</span> {{expense.amount}}
   </li>
 </ul>
-
-<div *ngIf="selectedExpense">
-    <h2>{{selectedExpense.name | uppercase}} Details</h2>
-    <div><span>Amount </span>{{selectedExpense.amount}}</div>
-    <div>
-      <label for="expense-name">Expense name: </label>
-      <input id="expense-name" [(ngModel)]="selectedExpense.name" placeholder="name">
-    </div>
-</div>
+<app-display-expenses [expense]="selectedExpense"></app-display-expenses>
