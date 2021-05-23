@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { DisplayExpensesComponent } from './display-expenses/display-expenses.component';
 import { MessageComponent } from './message/message.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddExpenseComponent,
     DisplayExpensesComponent,
-    MessageComponent
+    MessageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
