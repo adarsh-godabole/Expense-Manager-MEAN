@@ -23,7 +23,10 @@ export class AddExpenseComponent implements OnInit {
   }
 
   getExpences():void{
-    this.expenses=this.expser.getExpenses();
+    this.expser.getExpenses()
+        .subscribe(expenses => {
+          this.expenses=expenses;
+        });
   }
 
 }
