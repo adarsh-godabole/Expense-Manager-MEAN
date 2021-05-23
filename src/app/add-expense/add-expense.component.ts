@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Expense } from '../expense'
 import { EXPENSES } from '../expense-list'
 import { ExpenseService } from '../expense.service';
+import { MessageService } from '../message.service'
 
 @Component({
   selector: 'app-add-expense',
@@ -12,10 +13,11 @@ export class AddExpenseComponent implements OnInit {
 
   expenses : Expense[]=[];
   selectedExpense?:Expense;
-  constructor(private expser : ExpenseService) { }
+  constructor(private expser : ExpenseService, private messageservice:MessageService) { }
 
-  onSelect(hero: Expense): void {
-    this.selectedExpense = hero;
+  onSelect(expense: Expense): void {
+    this.selectedExpense = expense;
+    this.messageservice.add(`Selected Expense is ${expense.name}`);
   }
 
   ngOnInit(): void {
