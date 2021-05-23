@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { DisplayExpensesComponent } from './display-expenses/display-expenses.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddExpenseComponent,
-    DisplayExpensesComponent
+    DisplayExpensesComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
