@@ -15,10 +15,10 @@ export class AddExpenseComponent implements OnInit {
   selectedExpense?:Expense;
   constructor(private expser : ExpenseService, private messageservice:MessageService) { }
 
-  onSelect(expense: Expense): void {
-    this.selectedExpense = expense;
-    this.messageservice.add(`Selected Expense is ${expense.name}`);
-  }
+  // onSelect(expense: Expense): void {
+  //   this.selectedExpense = expense;
+  //   this.messageservice.add(`Selected Expense is ${expense.name}`);
+  // }
 
   ngOnInit(): void {
     this.getExpences();

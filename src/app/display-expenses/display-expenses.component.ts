@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Expense } from '../expense'
+import { Expense } from '../expense';
+
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { ExpenseService } from '../expense.service'
  
 @Component({
   selector: 'app-display-expenses',
@@ -10,9 +15,21 @@ export class DisplayExpensesComponent implements OnInit {
 
   @Input() expense?:Expense
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private expenseService: ExpenseService,
+    private location: Location) { }
 
   ngOnInit(): void {
+    this.getExpense();
+  }
+
+  getExpense() {
+    const name = String(this.route.snapshot.paramMap.get('name'));
+    this.expenseService.getExpense(name).subscribe(expense => this.expense=expense)
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
