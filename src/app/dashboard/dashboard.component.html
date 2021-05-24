@@ -1,6 +1,7 @@
-<h2>Top Heroes</h2>
+<h2>Top Expenses</h2>
 <div class="expense-menu">
-  <a *ngFor="let expense of expenses">
+  <a *ngFor="let expense of expenses"
+  routerLink="/details/{{expense.name}}">
     {{expense.name}}
   </a>
 </div>

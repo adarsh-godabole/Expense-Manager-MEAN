@@ -4,6 +4,7 @@ import { EXPENSES } from './expense-list';
 import { MessageService } from './message.service'
 
 import { Observable, of } from 'rxjs';
+import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +19,12 @@ export class ExpenseService {
     return expenses;
     console.log(EXPENSES)
   }
+
+  getExpense(name:String) {
+    const expense = EXPENSES.find(e=>e.name===name);
+    this.msgser.add(`Fetched hero ${name}`);
+    return of(expense)
+  }
+
+
 }
