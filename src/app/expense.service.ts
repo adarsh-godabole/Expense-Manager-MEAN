@@ -6,17 +6,20 @@ import { MessageService } from './message.service'
 import { Observable, of } from 'rxjs';
 import { ThrowStmt } from '@angular/compiler';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ExpenseService {
 
-  constructor(private msgser:MessageService) { }
+  private Expenseurl = 'api/expenses';  // URL to web api
+
+  constructor(private http: HttpClient, private msgser:MessageService) { }
 
   getExpenses() : Observable<Expense[]>{
-    const expenses = of(EXPENSES); // returns an Observable that emits an single value//
-    this.msgser.add('Message Service fetched Expenses')
-    return expenses;
+    
+    return this.http.get<Expense[]>(this.Expenseurl);
     console.log(EXPENSES)
   }
 
@@ -24,6 +27,10 @@ export class ExpenseService {
     const expense = EXPENSES.find(e=>e.name===name);
     this.msgser.add(`Fetched hero ${name}`);
     return of(expense)
+  }
+
+  private log(message: string) {
+    this.msgser.add(`ExpenseService: ${message}`);
   }
 
 
