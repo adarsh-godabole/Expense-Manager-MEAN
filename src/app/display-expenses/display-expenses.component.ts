@@ -23,8 +23,10 @@ export class DisplayExpensesComponent implements OnInit {
     this.getExpense();
   }
 
-  getExpense() {
+  getExpense():void {
     const name = String(this.route.snapshot.paramMap.get('name'));
+    console.log(name);
+    
     this.expenseService.getExpense(name).subscribe(expense => this.expense=expense)
   }
 
