@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Expense } from '../expense'
-import { EXPENSES } from '../expense-list'
+// import { EXPENSES } from '../expense-list'
 import { ExpenseService } from '../expense.service';
 import { MessageService } from '../message.service'
 

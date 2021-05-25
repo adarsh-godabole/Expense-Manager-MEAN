@@ -1,7 +1,7 @@
 <h2>My Expenses</h2>
 <ul class="expenses">
     <li *ngFor="let expense of expenses">
-        <a routerLink="/details/{{expense.name}}">
+        <a routerLink="/details/{{expense.id}}">
         <span class="badge">{{expense.name}}</span> {{expense.amount}}</a>
   </li>
 </ul>

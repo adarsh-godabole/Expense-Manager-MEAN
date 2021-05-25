@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Expense } from './expense';
-import { EXPENSES } from './expense-list';
+// import { EXPENSES } from './expense-list';
 import { MessageService } from './message.service'
 
 import { Observable, of } from 'rxjs';
@@ -27,11 +27,11 @@ export class ExpenseService {
     
   }
 
-  getExpense(name:String) : Observable<Expense>{
-    const url=`${this.Expenseurl}/${name}`;
+  getExpense(id:Number) : Observable<Expense>{
+    const url=`${this.Expenseurl}/${id}`;
     return this.http.get<Expense>(url).pipe(
-      tap(_ => this.log(`fetched expense name ${name}`)),
-      catchError(this.handleError<Expense>(`getExpense name ${name}`))
+      tap(_ => this.log(`fetched expense id ${id}`)),
+      catchError(this.handleError<Expense>(`getExpense id ${id}`))
     );
 
       
