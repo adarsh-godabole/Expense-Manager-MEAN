@@ -21,7 +21,7 @@ export class AddExpenseComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.getExpences();
+    this.getExpences();  
   }
 
   getExpences():void{
@@ -29,6 +29,23 @@ export class AddExpenseComponent implements OnInit {
         .subscribe(expenses => {
           this.expenses=expenses;
         });
+  }
+
+  add(name1:string,amount1:string) {
+   
+
+    name1 = name1.trim();
+    var myexp : Expense = {
+      id:this.expenses.length+1,
+      name : name1,
+      amount : Number(amount1)
+    }
+  if (!myexp) { return; }
+   
+  this.expser.addExpense(myexp).subscribe(
+    expense => this.expenses.push(expense)
+  )
+
   }
 
 }
