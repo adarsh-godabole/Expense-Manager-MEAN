@@ -1,4 +1,15 @@
 <h2>My Expenses</h2>
+<div>
+  <label for="new-expense">Expense name: </label>
+  <input id="new-expense" #expenseName />
+  <input type="number" id="new-expense-amount" #expenseAmount />
+  
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(expenseName.value,expenseAmount.value); expenseName.value=''">
+    Add Expense
+  </button>
+</div>
 <ul class="expenses">
     <li *ngFor="let expense of expenses">
         <a routerLink="/details/{{expense.id}}">

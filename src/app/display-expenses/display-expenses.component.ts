@@ -33,4 +33,12 @@ export class DisplayExpensesComponent implements OnInit {
     this.location.back();
   }
 
+  save () {
+    if(this.expense)
+    {
+      this.expenseService.updateExpense(this.expense).
+      subscribe(()=>this.goBack())
+    }
+  }
+
 }

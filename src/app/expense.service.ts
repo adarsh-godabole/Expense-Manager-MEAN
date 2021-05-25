@@ -16,6 +16,10 @@ export class ExpenseService {
 
   private Expenseurl = 'api/expenses';  // URL to web api
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(private http: HttpClient, private msgser:MessageService) { }
 
   getExpenses() : Observable<Expense[]>{
@@ -37,6 +41,14 @@ export class ExpenseService {
       
   }
 
+  updateExpense(expense:Expense):Observable<any> {
+    return this.http.put(this.Expenseurl,expense,this.httpOptions)
+  }
+
+  addExpense(expense:Expense):Observable<any> {
+    return this.http.post(this.Expenseurl,expense,this.httpOptions)
+  }
+
   private log(message: string) {
     this.msgser.add(`ExpenseService: ${message}`);
   }
@@ -54,6 +66,15 @@ export class ExpenseService {
       return of(result as T);
     };
   }
+
+  //  updateExpense(expense:Expense) Observable<any>{
+  //    return this.http.put(this.Expenseurl,expense,this.httpOptions).pipe
+  //    (tap(_=> this.log(`updated hero id=${expense.id}`)),
+  //    catchError(this.handleError<any>('updateExpense'))
+
+  // }
+
+  
 
 
 }
