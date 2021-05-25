@@ -49,6 +49,12 @@ export class ExpenseService {
     return this.http.post(this.Expenseurl,expense,this.httpOptions)
   }
 
+  deleteExpense(id:number) {
+    const url=`${this.Expenseurl}/${id}`;
+    return this.http.delete(url);
+    
+  }
+
   private log(message: string) {
     this.msgser.add(`ExpenseService: ${message}`);
   }

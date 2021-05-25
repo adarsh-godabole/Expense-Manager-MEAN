@@ -9,11 +9,15 @@
   <button class="add-button" (click)="add(expenseName.value,expenseAmount.value); expenseName.value=''">
     Add Expense
   </button>
+
+ 
 </div>
 <ul class="expenses">
     <li *ngFor="let expense of expenses">
         <a routerLink="/details/{{expense.id}}">
         <span class="badge">{{expense.name}}</span> {{expense.amount}}</a>
+        <button class="delete" title="delete expense"
+        (click)="delete(expense)">x</button>
   </li>
 </ul>
 <!-- <app-display-expenses [expense]="selectedExpense"></app-display-expenses> -->
