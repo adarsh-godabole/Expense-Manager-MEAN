@@ -12,6 +12,7 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { DisplayExpensesComponent } from './display-expenses/display-expenses.component';
 import { MessageComponent } from './message/message.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ExpenseSearchComponent } from './expense-search/expense-search.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AddExpenseComponent,
     DisplayExpensesComponent,
     MessageComponent,
-    DashboardComponent
+    DashboardComponent,
+    ExpenseSearchComponent
   ],
   imports: [
     BrowserModule,
