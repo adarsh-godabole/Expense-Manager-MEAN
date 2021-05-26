@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   constructor(private expenseservice:ExpenseService) { }
 
   expenses : Expense[]=[];
+  recentExpenses : Expense[]=[];
 
   ngOnInit(): void {
     this.getExpense();
@@ -21,8 +22,11 @@ export class DashboardComponent implements OnInit {
 
   getExpense() {
     this.expenseservice.getExpenses().subscribe(
-      expense => {
-        this.expenses = expense.slice(1,2);
+      expenses => {
+        this.expenses = expenses;
+        this.expenses.sort((a,b)=>b.amount-a.amount);
+        this.recentExpenses = Array.from(this.expenses);
+        this.recentExpenses.reverse();
     })
   }
 
