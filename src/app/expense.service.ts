@@ -55,6 +55,15 @@ export class ExpenseService {
     
   }
 
+  searchExpense(term:string):Observable<Expense[]>
+  {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Expense[]>(`${this.Expenseurl}/?name=${term}`)
+  }
+
   private log(message: string) {
     this.msgser.add(`ExpenseService: ${message}`);
   }
