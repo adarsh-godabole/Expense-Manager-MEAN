@@ -48,3 +48,13 @@ h2 {
   a:hover {
     background-color: #000;
   }
+
+  .top-expenses {
+      width:49%;
+      float:right;
+  }
+
+  .recent-expenses {
+    width:49%;
+    float:right;
+}

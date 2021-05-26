@@ -1,9 +1,28 @@
-<h2>Top Expenses</h2>
-<div class="expense-menu">
-  <a *ngFor="let expense of expenses"
-  routerLink="/details/{{expense.id}}">
-    {{expense.name}}
-  </a>
+<div class="recent-expenses">
+  <h2>Recent Expenses</h2>
+  <div class="expense-menu">
+    <ul>
+      <li *ngFor="let rexpense of recentExpenses">
+        <a routerLink="/details/{{rexpense.id}}">
+          {{rexpense.name}} {{rexpense.amount}}
+        </a>
+      </li>
+    </ul>
+  
+  </div>
+</div>
+<div class="top-expenses">
+  <h2>Top Expenses</h2>
+  <div class="expense-menu">
+    <ul>
+      <li *ngFor="let expense of expenses">
+        <a routerLink="/details/{{expense.id}}">
+          {{expense.name}} {{expense.amount}}
+        </a>
+      </li>
+    </ul>
+  
+  </div>
 </div>
 
 <app-expense-search></app-expense-search>
