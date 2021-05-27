@@ -1,6 +1,6 @@
 /* DashboardComponent's private CSS styles */
 
-h2 {
+.header {
     text-align: center;
   }
   
@@ -37,24 +37,25 @@ h2 {
     flex: 0 1 auto;
     align-self: auto;
   }
-  
-  @media (min-width: 600px) {
-    a {
-      width: 18%;
-      box-sizing: content-box;
-    }
+
+  li {
+    list-style: none;
   }
-  
+
   a:hover {
-    background-color: #000;
+    background-color: #e8e8e8;
+    color:#3f525c;
   }
 
-  .top-expenses {
-      width:49%;
-      float:right;
+  .home {
+    background-color:#3f525c;
   }
 
-  .recent-expenses {
-    width:49%;
-    float:right;
-}
+  .recent-expenses, .top-expenses {
+    text-align: center;
+  }
+
+
+  
+ 
+

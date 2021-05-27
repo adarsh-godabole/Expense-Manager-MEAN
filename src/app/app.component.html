@@ -1,7 +1,7 @@
-<h1>{{title}}</h1>
+<h1 class="header">{{title}}</h1>
 <nav>
-    <a routerLink='/addexpense'>Add Expense</a>
-    <a routerLink='/dashboard'>Dashboard</a>
+    <a class="col-sm-6 " routerLink='/addexpense' routerLinkActive="active-tab">Add Expense</a>
+    <a class="col-sm-6 "routerLink='/dashboard' routerLinkActive="active-tab">Dashboard</a>
 </nav>
 <router-outlet></router-outlet>
 <app-message></app-message>

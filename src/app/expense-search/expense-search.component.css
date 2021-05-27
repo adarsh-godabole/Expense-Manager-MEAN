@@ -18,15 +18,15 @@ label {
   
   input:focus {
     outline: #336699 auto 1px;
+    border:none;
   }
   
   li {
     list-style-type: none;
   }
   .search-result li a {
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+    outline: #336699 auto 1px;
+    outline-width: 10px;
     display: inline-block;
     width: 100%;
     max-width: 600px;
