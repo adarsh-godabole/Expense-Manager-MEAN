@@ -1,3 +1,6 @@
+.header {
+  text-align: center;
+}
 .expenses {
     margin: 0 0 2em 0;
     list-style-type: none;
@@ -11,10 +14,10 @@
     background-color: #EEE;
     margin: .5em;
     padding: .3em 0;
-    height: 1.6em;
+    height: 2.8em;
     border-radius: 4px;
   }
-  .expenses li:hover {
+  .expenses li:hover  {
     color: #2c3a41;
     background-color: #e6e6e6;
     left: .1em;
@@ -23,7 +26,7 @@
     background-color: black;
     color: white;
   }
-  .expenses li.selected:hover {
+  .expenses li.selected:hover  {
     background-color: #505050;
     color: white;
   }
@@ -41,11 +44,33 @@
     position: relative;
     left: -1px;
     top: -4px;
-    height: 1.8em;
+    height: 2.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
+
+  .add-button {
+    color: white;
+    background-color:#405061;
+    margin-top:5px;
+    border-radius:10px;
+  }
+
+  button.delete {
+    float: right;
+    border: navajowhite;
+    font-size: large;
+}
+
+button.delete:hover {
+  color:red;
+}
   
   input {
     padding: .5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color:#405061
   }
