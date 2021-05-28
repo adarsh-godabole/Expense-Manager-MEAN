@@ -19,7 +19,9 @@ export class AddExpenseComponent implements OnInit {
   expenses : Expense[]=[];
   selectedExpense?:Expense;
   myDate = new Date();
+  totalExpense : number=0;
   constructor(private expser : ExpenseService, private messageservice:MessageService,private datePipe: DatePipe) {
+    
     // this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
    }
 
@@ -30,15 +32,28 @@ export class AddExpenseComponent implements OnInit {
 
   ngOnInit(): void {
     this.getExpences();  
-    console.log("Date is"+this.myDate);
+    
+   
     
   }
+
+  
+
+  
 
   getExpences():void{
     this.expser.getExpenses()
         .subscribe(expenses => {
           this.expenses=expenses;
+          this.expenses.forEach(element => {
+          this.totalExpense+=element.amount
+          console.log(this.totalExpense);
+          
+          });
+  
+          
         });
+       
   }
 
   add(name1:string,amount1:string) {

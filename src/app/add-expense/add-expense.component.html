@@ -14,6 +14,10 @@
           <label for="new-expense-amount">Expense Amount: </label>
           <input type="number" id="new-expense-amount" #expenseAmount placeholder="Amount in Rs"/>
         </div>
+        <div class="col-md-3">
+          <label for="total-expense" style="text-align: center;">Total Expense </label>
+          <div class="total-expense">{{totalExpense}}</div>
+        </div>
     </div>
 </div>
 
@@ -26,9 +30,12 @@
           Add Expense
         </button>
       </div>
-      <div class="col-md-2"></div>
+      <div class="col-md-2">
+      </div>
     </div>
   </div>
+
+
 
  
 </div>

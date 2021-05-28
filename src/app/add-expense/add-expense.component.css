@@ -74,3 +74,10 @@ button.delete:hover {
     text-decoration: none;
     color:#405061
   }
+
+  .total-expense {
+    font-size: larger;
+    padding-top: 0.5em;
+    color: red;
+    
+  }
