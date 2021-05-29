@@ -8,9 +8,9 @@ import { Expense } from './expense';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const expenses = [
-      { id: 1, name: 'Movie', amount: 900 , date:"",category:"Entertainment" },
-      { id: 2, name: 'Vegetables', amount: 500, date:"", category:"Groceries" },
-      { id: 3 ,name: 'Petrol', amount: 2000, date:"", category:"Fuel" }
+      { id: 1, name: 'Movie', amount: 900 , date:"2021-05-23T18:25:43.511Z",category:"Entertainment" },
+      { id: 2, name: 'Vegetables', amount: 500, date:"2021-05-23T18:25:43.511Z", category:"Groceries" },
+      { id: 3 ,name: 'Petrol', amount: 2000, date:"2021-05-23T18:25:43.511Z", category:"Fuel" }
      
      
     ];
