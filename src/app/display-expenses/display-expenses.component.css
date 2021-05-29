@@ -1,0 +1,24 @@
+input {
+    margin-left:1em;
+    margin-top:0.5em;
+}
+
+button {
+    background-color: #3f525c;
+    border-radius: 2px;
+    padding: .5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    
+    min-width: 70px;
+    margin: .5rem auto;
+    box-sizing: border-box;
+  
+    /* flexbox */
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
