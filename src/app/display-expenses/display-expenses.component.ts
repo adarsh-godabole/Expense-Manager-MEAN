@@ -37,7 +37,7 @@ export class DisplayExpensesComponent implements OnInit {
     if(this.expense)
     {
       this.expenseService.updateExpense(this.expense).
-      subscribe(()=>this.goBack())
+      subscribe(()=>{this.goBack()})
     }
   }
 

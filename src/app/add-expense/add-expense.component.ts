@@ -89,7 +89,9 @@ export class AddExpenseComponent implements OnInit {
 
   delete(expense: Expense) {
     this.expenses = this.expenses.filter(e => e !== expense);
-    this.expser.deleteExpense(expense.id).subscribe();
+    this.expser.deleteExpense(expense.id).subscribe(
+      (expense)=>{this.getExpences();}
+    );
 
   }
 
