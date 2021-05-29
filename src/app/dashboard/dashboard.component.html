@@ -6,7 +6,7 @@
         <ul>
           <li *ngFor="let rexpense of recentExpenses">
             <a routerLink="/details/{{rexpense.id}}">
-              {{rexpense.name}} ₹{{rexpense.amount}} ( {{rexpense.date | date:'dd-MM-yyyy'}} )
+              {{rexpense.name}} <i>{{rexpense.category}}</i>  ₹{{rexpense.amount}} ( {{rexpense.date | date:'dd-MM-yyyy'}} )
             </a>
           </li>
         </ul>
@@ -21,7 +21,7 @@
         <ul>
           <li *ngFor="let expense of expenses">
             <a routerLink="/details/{{expense.id}}">
-              {{expense.name}} ₹{{expense.amount}} ( {{expense.date | date:'dd-MM-yyyy'}} )
+              {{expense.name}} <i>{{expense.category}}</i> ₹{{expense.amount}} ( {{expense.date | date:'dd-MM-yyyy'}} )
             </a>
           </li>
         </ul>

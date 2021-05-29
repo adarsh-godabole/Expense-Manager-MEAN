@@ -1,13 +1,15 @@
 .header {
-  text-align: center;
+    text-align: center;
 }
+
 .expenses {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
     width: 15em;
-  }
-  .expenses li {
+}
+
+.expenses li {
     cursor: pointer;
     position: relative;
     left: 0;
@@ -16,30 +18,35 @@
     padding: .3em 0;
     height: 2.8em;
     border-radius: 4px;
-  }
-  .expenses li:hover  {
+}
+
+.expenses li:hover {
     color: #2c3a41;
     background-color: #e6e6e6;
     left: .1em;
-  }
-  .expenses li.selected {
+}
+
+.expenses li.selected {
     background-color: black;
     color: white;
-  }
-  .expenses li.selected:hover  {
+}
+
+.expenses li.selected:hover {
     background-color: #505050;
     color: white;
-  }
-  .expenses li.selected:active {
+}
+
+.expenses li.selected:active {
     background-color: black;
     color: white;
-  }
-  .expenses .badge {
+}
+
+.expenses .badge {
     display: inline-block;
     font-size: small;
     color: white;
     padding: 0.8em 0.7em 0 0.7em;
-    background-color:#405061;
+    background-color: #405061;
     line-height: 1em;
     position: relative;
     left: -1px;
@@ -47,37 +54,53 @@
     height: 2.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
-  }
+}
 
-  .add-button {
+.add-button {
     color: white;
-    background-color:#405061;
-    margin-top:5px;
-    border-radius:10px;
-  }
+    background-color: #405061;
+    margin-top: 5px;
+    border-radius: 10px;
+}
 
-  button.delete {
+button.delete {
     float: right;
     border: navajowhite;
     font-size: large;
 }
 
 button.delete:hover {
-  color:red;
+    color: red;
 }
-  
-  input {
+
+input {
     padding: .5rem;
-  }
+}
 
-  a {
+a {
     text-decoration: none;
-    color:#405061
-  }
+    color: #405061
+}
 
-  .total-expense {
+.total-expense {
     font-size: larger;
     padding-top: 0.5em;
     color: red;
-    
-  }
+}
+
+#category {
+    display: block;
+    padding: 0.7em;
+    display: block
+}
+
+option {
+    color: white;
+    background-color: #405061;
+    margin-top: 5px;
+}
+
+option:hover {
+    color: #2c3a41 inset;
+    background-color: #e6e6e6 inset;
+}

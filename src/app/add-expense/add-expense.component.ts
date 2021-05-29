@@ -57,7 +57,7 @@ export class AddExpenseComponent implements OnInit {
 
   }
 
-  add(name1: string, amount1: string) {
+  add(name1: string, amount1: string,category1:string) {
 
     if (!name1 || !amount1 || Number(amount1) < 0) {
       window.alert("Please enter valid details!")
@@ -72,7 +72,8 @@ export class AddExpenseComponent implements OnInit {
       id: this.expenses.length + 1,
       name: name1,
       amount: Number(amount1),
-      date: this.myDate
+      date: this.myDate,
+      category:category1
     }
     if (!myexp) { return; }
 
