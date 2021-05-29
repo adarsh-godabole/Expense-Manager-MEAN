@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { ExpenseService } from '../expense.service'
- 
+
 @Component({
   selector: 'app-display-expenses',
   templateUrl: './display-expenses.component.html',
@@ -13,7 +13,8 @@ import { ExpenseService } from '../expense.service'
 })
 export class DisplayExpensesComponent implements OnInit {
 
-  @Input() expense?:Expense
+  @Input() expense?: Expense
+  expenses: Expense[] = [];
 
   constructor(private route: ActivatedRoute,
     private expenseService: ExpenseService,
@@ -21,23 +22,35 @@ export class DisplayExpensesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getExpense();
+    this.getExpences();
   }
 
-  getExpense():void {
+  getExpense(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     console.log(id);
-    this.expenseService.getExpense(id).subscribe(expense => this.expense=expense)
+    this.expenseService.getExpense(id).subscribe(expense => this.expense = expense)
   }
+
+  getExpences(): void {
+    this.expenseService.getExpenses()
+      .subscribe(expenses => {
+        this.expenses = expenses;
+
+      });
+
+
+  }
+
+
 
   goBack(): void {
     this.location.back();
   }
 
-  save () {
-    if(this.expense)
-    {
+  save() {
+    if (this.expense) {
       this.expenseService.updateExpense(this.expense).
-      subscribe(()=>{this.goBack()})
+        subscribe(() => { this.goBack() })
     }
   }
 

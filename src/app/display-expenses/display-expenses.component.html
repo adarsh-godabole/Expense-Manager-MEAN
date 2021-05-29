@@ -1,15 +1,20 @@
 <div *ngIf="expense">
     <h2>{{expense.name | uppercase}} Details</h2>
     <div>
-      <label for="expense-amount">Expense Amount: </label>
-      <input id="expense-amount" [(ngModel)]="expense.amount" placeholder="Amount" type="number">
+        <label for="expense-amount">Expense Amount: </label>
+        <input id="expense-amount" [(ngModel)]="expense.amount" placeholder="Amount" type="number">
+    </div>
+    <div class="col-md-3">
+        <label for="expense-category">Category</label>
+        <select name="category" id="category" [(ngModel)]="expense.category">
+          <option  *ngFor="let exp of expenses">{{exp.category}}</option>
+        </select>
     </div>
     <div>
-      <label for="expense-name">Expense name: </label>
-      <input id="expense-name" [(ngModel)]="expense.name" placeholder="name">
+        <label for="expense-name">Expense name: </label>
+        <input id="expense-name" [(ngModel)]="expense.name" placeholder="name">
     </div>
     <button (click)="goBack()">go back</button>
     <button (click)="save()">save</button>
 
 </div>
-
