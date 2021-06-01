@@ -13,6 +13,10 @@ import { DisplayExpensesComponent } from './display-expenses/display-expenses.co
 import { MessageComponent } from './message/message.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExpenseSearchComponent } from './expense-search/expense-search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {DemoMaterialModule} from '../app/material-module'
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { ExpenseSearchComponent } from './expense-search/expense-search.componen
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false })
+      InMemoryDataService, { dataEncapsulation: false }),
+    BrowserAnimationsModule,
+    DemoMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
