@@ -7,22 +7,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <label for="new-expense">Expense name: </label>
-                <input id="new-expense" #expenseName placeholder="Expense Name" />
+                <mat-form-field>
+                    <mat-label>Expense name: </mat-label>
+                    <input matInput id="new-expense" #expenseName placeholder="Expense Name" />
+                </mat-form-field>
+
             </div>
             <div class="col-md-3">
-                <label for="new-expense-amount">Expense Amount: </label>
-                <input type="number" id="new-expense-amount" #expenseAmount placeholder="Amount in Rs" />
+                <mat-form-field>
+                    <mat-label for="new-expense-amount">Expense Amount: </mat-label>
+                    <input matInput type="number" id="new-expense-amount" #expenseAmount placeholder="Amount in Rs" />
+                </mat-form-field>
             </div>
             <div class="col-md-3">
-                <label for="expense-category">Category</label>
-                <select name="category" id="category" #category>
-          <option value="Fuel">Fuel</option>
-          <option value="Groceries">Groceries</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Medicine">Medicine</option>
-          <option value="Household"> Household</option>
-        </select>
+                <mat-form-field>
+                    <mat-label for="expense-category">Category</mat-label>
+                    <mat-select name="category" id="category" #category>
+                        <mat-option value="Fuel">Fuel</mat-option>
+                        <mat-option value="Groceries">Groceries</mat-option>
+                        <mat-option value="Entertainment">Entertainment</mat-option>
+                        <mat-option value="Medicine">Medicine</mat-option>
+                        <mat-option value="Household"> Household</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
             <div class="col-md-3">
                 <label for="total-expense" style="text-align: center;">Total Expense </label>

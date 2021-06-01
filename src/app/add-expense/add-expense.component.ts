@@ -8,6 +8,9 @@ import { Expense } from '../expense'
 import { ExpenseService } from '../expense.service';
 import { MessageService } from '../message.service'
 
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+
 @Component({
   selector: 'app-add-expense',
   templateUrl: './add-expense.component.html',
@@ -20,7 +23,7 @@ export class AddExpenseComponent implements OnInit {
   selectedExpense?: Expense;
   myDate = new Date();
   totalExpense: number = 0;
-  constructor(private expser: ExpenseService, private messageservice: MessageService, private datePipe: DatePipe) {
+  constructor(private expser: ExpenseService, private messageservice: MessageService, private datePipe: DatePipe,private _snackBar: MatSnackBar) {
 
     // this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
   }
@@ -64,7 +67,9 @@ export class AddExpenseComponent implements OnInit {
       return;
     }
 
-
+    this._snackBar.open("Expense Added!", '', {
+      duration: 3000
+    });
 
 
     name1 = name1.trim();

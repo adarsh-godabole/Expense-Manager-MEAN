@@ -73,9 +73,7 @@ button.delete:hover {
     color: red;
 }
 
-input {
-    padding: .5rem;
-}
+input {}
 
 a {
     text-decoration: none;
