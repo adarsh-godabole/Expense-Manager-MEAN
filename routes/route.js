@@ -8,6 +8,15 @@ router.get("/expense", async(req, res) => {
     res.send(expense)
 })
 
+router.get("/expense/:id", async(req, res) => {
+    try {
+        const expense = await Expense.findOne({ id: req.params.id })
+        res.send(expense)
+    } catch {
+        res.status(404)
+        res.send({ error: "Expense doesn't exist!" })
+    }
+})
 router.post('/expense', (req, res, next) => {
     console.log(req.body);
     let newExpense = new Expense({
@@ -28,15 +37,15 @@ router.post('/expense', (req, res, next) => {
     })
 });
 
-// router.delete('/expense/:id', (req, res, next) => {
-//     Expense.remove({ _id: req.params.id }, (err, result) => {
-//         if (err) {
-//             res.json(err);
-//         } else {
-//             res.json(result);
-//         }
-//     })
-// })
+router.delete('/expense/:id', (req, res, next) => {
+    Expense.remove({ id: req.params.id }, (err, result) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(result);
+        }
+    })
+})
 
 
 module.exports = router;
