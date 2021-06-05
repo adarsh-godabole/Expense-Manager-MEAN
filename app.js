@@ -1,38 +1,49 @@
 //importing mods//
+//import modules 
 var express = require('express');
-const mongoose = require('mongoose');
-var bodyparser = require('body-parser');
+var mongoose = require('mongoose');
 var cors = require('cors');
 var path = require('path');
-const route = require('./routes/route')
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/expenselist');
+const route = require('./routes/route');
 
-mongoose.connection.on("connected", () => {
-    console.log("Connected to Mongodb at 27017");
-})
+//connect to mongo
+mongoose.connect('mongodb://localhost:27017/expenseList');
 
-mongoose.connection.on("error", (err) => {
-    if (err) {
-        console.log("ERROR IN CONNECTING " + err);
-    }
-
-})
-
-var port = 3000;
-
-app.use('/api', route)
-
-app.use(cors())
-
-app.use(express.static(path.join(__dirname, 'public')))
-
-app.get('/', (req, res) => {
-    res.send('foobar')
-})
-
-app.listen(port, () => {
-    console.log("server started at port " + port);
+//on connection
+mongoose.connection.on('connected', () => {
+    console.log('Connected to database @ 27017');
 });
+
+mongoose.connection.on('error', (err) => {
+    if (err) {
+        console.log("Error in db", err);
+    }
+})
+
+//define port
+const port = 3000;
+
+//adding middlewear cors
+app.use(cors());
+
+//adding body-parser
+app.use(express.json());
+
+//static file
+app.use(express.static(path.join(__dirname, 'public')));
+
+//all urls with api/ to go to route.js file
+app.use('/api', route);
+
+//testing server
+app.get('/', (req, res) => {
+    res.send('foobar');
+});
+
+//bind server with the port
+app.listen(port, () => {
+    console.log("Server started at port:" + port);
+})
