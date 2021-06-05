@@ -9,15 +9,7 @@ const ExpenseSchema = mongoose.Schema({
     amount: {
         type: Number,
         required: true
-    },
-    date: {
-        type: Date,
-        required: true
-    },
-    category: {
-        type: String,
-        required: true
     }
 })
 
-const Expense = mongoose.exports = mongoose.model('Expense', ExpenseSchema)
+module.exports = mongoose.model('Expense', ExpenseSchema)
