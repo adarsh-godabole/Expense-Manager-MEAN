@@ -14,7 +14,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class ExpenseService {
 
-  private Expenseurl = 'https://localhost:3000/api/expense';  // URL to web api
+  private Expenseurl = 'http://localhost:3000/api/expense';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -50,7 +50,9 @@ export class ExpenseService {
   }
 
   addExpense(expense:Expense):Observable<any> {
-    return this.http.post(this.Expenseurl,expense,this.httpOptions)
+    return this.http.post(this.Expenseurl,expense,this.httpOptions).pipe(
+      catchError(this.handleError<Expense>('addExpense'))
+    );
   }
 
   deleteExpense(id:number) {
