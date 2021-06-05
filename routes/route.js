@@ -3,20 +3,26 @@ const router = express.Router();
 
 const Expense = require('../models/expense')
 
-router.get("/expenses", async(req, res) => {
+router.get("/expense", async(req, res) => {
     const expense = await Expense.find()
     res.send(expense)
 })
 
-router.post("/expense", async(req, res) => {
+router.post('/expense', (req, res, next) => {
     console.log(req.body);
-    const exp = new Expense({
+    let newExpense = new Expense({
         name: req.body.name,
-        amount: req.body.amount,
+        amount: req.body.amount
+    });
+
+    newExpense.save((err, expense) => {
+        if (err) {
+            res.json({ msg: 'Failed to add Expense' });
+        } else {
+            expense;
+        }
     })
-    await exp.save()
-    res.send(exp)
-})
+});
 
 // router.delete('/expense/:id', (req, res, next) => {
 //     Expense.remove({ _id: req.params.id }, (err, result) => {
