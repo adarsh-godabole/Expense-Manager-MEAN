@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const ExpenseSchema = mongoose.Schema({
-
+    id: {
+        type: Number,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -9,7 +12,16 @@ const ExpenseSchema = mongoose.Schema({
     amount: {
         type: Number,
         required: true
-    }
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
+
 })
 
 module.exports = mongoose.model('Expense', ExpenseSchema)

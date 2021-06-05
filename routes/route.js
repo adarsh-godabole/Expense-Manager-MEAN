@@ -11,8 +11,12 @@ router.get("/expense", async(req, res) => {
 router.post('/expense', (req, res, next) => {
     console.log(req.body);
     let newExpense = new Expense({
+        id: req.body.id,
         name: req.body.name,
-        amount: req.body.amount
+        amount: req.body.amount,
+        date: req.body.date,
+        category: req.body.category
+
     });
 
     newExpense.save((err, expense) => {
