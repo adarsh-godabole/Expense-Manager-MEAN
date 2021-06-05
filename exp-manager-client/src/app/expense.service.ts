@@ -14,7 +14,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class ExpenseService {
 
-  private Expenseurl = 'api/expenses';  // URL to web api
+  private Expenseurl = 'https://localhost:3000/api/expense';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
