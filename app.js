@@ -9,14 +9,16 @@ const route = require('./routes/route')
 var app = express();
 
 mongoose.connect('mongodb://localhost:27017/expenselist');
+
 mongoose.connection.on("connected", () => {
     console.log("Connected to Mongodb at 27017");
 })
+
 mongoose.connection.on("error", (err) => {
     if (err) {
         console.log("ERROR IN CONNECTING " + err);
     }
-    console.log("Connected to Mongodb at 27017");
+
 })
 
 var port = 3000;
