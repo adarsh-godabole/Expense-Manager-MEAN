@@ -46,7 +46,8 @@ export class ExpenseService {
   }
 
   updateExpense(expense:Expense):Observable<any> {
-    return this.http.put(this.Expenseurl,expense,this.httpOptions)
+    return this.http.put(this.Expenseurl,expense,this.httpOptions).pipe(
+      catchError(this.handleError<Expense>('updateExpense')));
   }
 
   addExpense(expense:Expense):Observable<any> {

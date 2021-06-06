@@ -37,6 +37,30 @@ router.post('/expense', (req, res, next) => {
     })
 });
 
+router.put("/expense/:id", async(req, res) => {
+
+
+    try {
+        const expense = await Expense.findOne({ id: req.params.id })
+
+
+        if (req.body.name) {
+
+            expense.name = req.body.name
+        }
+
+        if (req.body.amount) {
+            expense.amount = req.body.amount
+        }
+
+        await expense.save()
+        res.send(expense)
+    } catch {
+        res.status(404)
+        res.send({ error: "Expense doesn't exist!" })
+    }
+})
+
 router.delete('/expense/:id', (req, res, next) => {
     Expense.remove({ id: req.params.id }, (err, result) => {
         if (err) {

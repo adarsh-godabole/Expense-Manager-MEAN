@@ -48,9 +48,16 @@ export class DisplayExpensesComponent implements OnInit {
   }
 
   save() {
+    console.log("AAA");
+    
     if (this.expense) {
+      alert(this.expense)
+
       this.expenseService.updateExpense(this.expense).
-        subscribe(() => { this.goBack() })
+        subscribe((expense) => {
+          
+          this.expenses=expense; 
+          this.goBack() })
     }
   }
 

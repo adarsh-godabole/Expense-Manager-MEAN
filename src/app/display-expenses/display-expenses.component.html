@@ -10,7 +10,11 @@
         <mat-form-field>
             <mat-label for="expense-category">Category</mat-label>
             <mat-select name="category" id="category" [(ngModel)]="expense.category">
-                <mat-option *ngFor="let exp of expenses">{{exp.category}}</mat-option>
+                <mat-option value="Fuel">Fuel</mat-option>
+                <mat-option value="Groceries">Groceries</mat-option>
+                <mat-option value="Entertainment">Entertainment</mat-option>
+                <mat-option value="Medicine">Medicine</mat-option>
+                <mat-option value="Household"> Household</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
